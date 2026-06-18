@@ -1,13 +1,13 @@
-import os
 import firebase_admin
 from firebase_admin import credentials
+from app.core.config import settings
 
-cred = credentials.Certificate(os.getenv("FIREBASE_CREDENTIALS_PATH", "firebase-credentials.json"))
-firebase_admin.initialize_app(cred)
+if not firebase_admin._apps:
+    cred = credentials.Certificate(settings.FIREBASE_CREDENTIALS_PATH)
+    firebase_admin.initialize_app(cred)
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.config import settings
 from app.api.routers import health_router
 
 app = FastAPI(title=settings.PROJECT_NAME)

@@ -81,6 +81,7 @@ app/
 ├── services/              ← logica de negocio (sin acceso directo a DB)
 ├── db/
 │   ├── connection.py      ← pool de conexion a PostgreSQL
+│   ├── migrations/        ← migraciones SQL versionadas
 │   └── queries/           ← queries SQL organizadas por dominio
 └── main.py
 ```
