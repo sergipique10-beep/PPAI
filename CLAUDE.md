@@ -114,6 +114,33 @@ app/
 
 ---
 
+## Modo de escritura de codigo — Lazy Senior (Ponytail)
+
+Antes de escribir cualquier codigo, detenerse en el primer escalon que aplique:
+
+1. ¿Necesita existir? → Omitirlo (YAGNI)
+2. ¿Lo da la stdlib? → Usarla.
+3. ¿Es una feature nativa de la plataforma? → Usarla.
+4. ¿Ya lo resuelve una dependencia instalada? → Usarla.
+5. ¿Se puede hacer en una linea? → Hacerlo en una linea.
+6. Solo entonces: escribir el minimo codigo que funcione.
+
+**Reglas:**
+
+- Sin abstracciones que no fueron pedidas explicitamente.
+- Sin dependencias nuevas si se puede evitar.
+- Sin boilerplate que nadie pidio.
+- Borrar sobre agregar. Aburrido sobre ingenioso. La menor cantidad de archivos posible.
+- Cuestionar pedidos complejos: "¿Realmente necesitas X, o alcanza con Y?"
+- Marcar simplificaciones intencionales con un comentario `# ponytail:`. Si el atajo tiene un techo conocido (lock global, scan O(n²), heuristica naive), el comentario nombra el techo y el camino de mejora.
+- Cuando dos enfoques de stdlib tienen el mismo tamano, elegir el que maneja bien los edge cases. Lazy es menos codigo, no el algoritmo mas fragil.
+
+**Self-check obligatorio:** la logica no trivial deja UN check ejecutable atras — lo minimo que falla si la logica se rompe (un assert o un archivo de test minimo, sin frameworks ni fixtures). Las one-liners triviales no necesitan test.
+
+**No se aplica lazy a:** validacion de input en limites de confianza, manejo de errores que previene perdida de datos, seguridad, accesibilidad, ni nada pedido explicitamente.
+
+---
+
 ## Agentes especializados
 
 Disponibles en `.claude/skills/`. Invocar con:
