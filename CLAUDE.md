@@ -153,6 +153,7 @@ Disponibles en `.claude/skills/`. Invocar con:
 | `/database` | Esquemas PostgreSQL, migraciones, queries, configuracion Supabase dev |
 | `/mobile` | Capacitor plugins, builds Android, permisos nativos, signing APK |
 | `/seguridad` | Revision de endpoints sin proteccion, validacion de tokens, datos expuestos |
+| `/testing` | Tests unitarios e integracion — pytest (backend), Jasmine (frontend) |
 
 ---
 
